@@ -3,11 +3,11 @@ package com.example.CreateAccount;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class CreateAccountApplication {
 
+@SpringBootApplication
+public class Customer {
 	public static void main(String[] args) {
-		SpringApplication.run(CreateAccountApplication.class, args);
+		SpringApplication.run(Customer.class, args);
 	}
 
 }

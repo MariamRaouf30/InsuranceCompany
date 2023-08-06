@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Customer",
+            "request": "launch",
+            "mainClass": "com.example.CreateAccount.Customer",
+            "projectName": "CreateAccount"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CreateAccountApplication<CreateAccount>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.CreateAccount.CreateAccountApplication",
+            "projectName": "CreateAccount",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

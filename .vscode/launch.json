@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Customer",
             "request": "launch",
+            "mainClass": "com.example.customer.Customer",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Customer",
+            "request": "launch",
             "mainClass": "com.example.CreateAccount.Customer",
             "projectName": "CreateAccount"
         },

@@ -1,5 +1,20 @@
 package com.example.policy.model;
 
-public class policy {
-    
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Data
+@Entity
+@Table
+public class Policy {
+    @Id
+    int claim_id;
+    String name;
+    int number;
+    String claim_amount;
+    String type;
 }

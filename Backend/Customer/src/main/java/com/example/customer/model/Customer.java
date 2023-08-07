@@ -1,4 +1,4 @@
-package com.example.CreateAccount.model;
+package com.example.customer.model;
 //import org.springframework.cglib.core.Local;
 //import org.springframework.data.mongodb.core.mapping.Document;
 

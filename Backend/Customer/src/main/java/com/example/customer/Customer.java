@@ -1,4 +1,4 @@
-package com.example.CreateAccount;
+package com.example.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

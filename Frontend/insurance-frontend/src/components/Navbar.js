@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Nav, Navbar as NavbarBs } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-
+//
 const Navbar = () => {
   const navigate = useNavigate();
   const BarStyle = {
-    background: '#3500A5',  // Set the background color to blue
+    background: '#3500A5',
     padding: '0 10px',     // Add some padding for spacing
-    
+    sticky: 'top',
   };
   const navBarStyle = ({ isActive }) => {
     return{
@@ -22,7 +22,8 @@ const Navbar = () => {
     marginRight: '108px',
   };
   return (
-   <nav style={BarStyle} >
+    // style={BarStyle} sticky = "top"
+   <nav className='barStyle'>
     <div style={logo}>
     <svg width="187" height="68" viewBox="0 0 187 68" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_dd_104_2)">

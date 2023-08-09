@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
 
 
 export const Register = (props) => {
@@ -7,9 +8,12 @@ export const Register = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const navigate = useNavigate();
+    const registerHandler = () =>{
+      navigate('/');
+    };
   return (
     <div className="form-container">
-      <div className="register"></div>
         <form className = "register-form">
             <label htmlFor='name'>Name</label>
             <input value ={name} onChange={(e)=> setName(e.target.value)} type="name" placeholder="Enter Your Name" id="name" name = "name"/>
@@ -21,6 +25,7 @@ export const Register = (props) => {
             <input value={confirmPassword} onChange={(e)=> setConfirmPassword(e.target.value)}type='password' placeholder="********" id="confirmPassword" name = "confirmPassword"/>
             <label htmlFor='phoneNumber'>Phone Number</label>
             <input value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)} type='phoneNumber' placeholder='Enter your Phone Number' id='phoneNumber' name='phoneNumber'/>
+            <button className='submitBtn' onClick={()=>registerHandler()}> Submit </button>
         </form>
     </div>
   )

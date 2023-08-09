@@ -94,3 +94,43 @@ label{
     opacity: 0.5; /* Adjust the opacity level as needed */
     z-index: -1; /* Place the overlay behind the content */
 }
+
+.submitBtn{
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border-width: 0;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* background: #3500A5; */
+.barStyle{
+  background-image: linear-gradient(79deg,#55319c, #3500A5 2%,#bcbdee 95%);
+  padding: 0 10px;     
+}
+
+/* .homePic{
+  background:  url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Picture1.png') center/cover no-repeat;    width: 100%;
+
+} */
+
+.homePic {
+position: absolute;
+width: 400px;
+height: 437px;
+left: 647px;
+top: 115px;
+margin-left: 22%;
+}
+.home{
+  padding: 15px;
+}
+
+.homeHeader{
+  font-style: italic;
+}
+.homeParagraph{
+  font-weight: 600;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 60%;
+}

@@ -4,10 +4,20 @@ import { useNavigate } from 'react-router'
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <>
-      <h1>Home</h1>
-      <button onClick={()=>navigate("register")}>Hello</button>
-    </>
+    <div className='home'>
+      <img src='../Picture1.png'
+      class='homePic'/>
+      <h1 className='homeHeader'>Who are we? </h1>
+      <p className='homeParagraph'>
+      In Insurance is the leading Insurance company all over the world. 
+      <br/>
+      Our experts in insurance provide you with tailored solutions that match your needs, ensuring peace of mind for every stage of life.
+      <br/>
+      We ensure your Insurance. 
+      Take a tour in our website and Explore how we put your well-being first.
+      </p>
+      
+    </div>
   )
 }
 

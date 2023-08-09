@@ -74,7 +74,7 @@ input{
   border-radius: 8px;
   border: 0;
 }
-label{
+.register-form{
   color: white;
   font-weight: bold;
 }  
@@ -103,6 +103,19 @@ label{
   font-weight: bold;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.sendBtn{
+  margin-top: 5px;
+  background-color: rgb(18, 5, 87);
+  border-radius: 5px;
+  padding: 10px;
+  border-width: 0;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
 /* background: #3500A5; */
 .barStyle{
   background-image: linear-gradient(79deg,#55319c, #3500A5 2%,#bcbdee 95%);
@@ -129,8 +142,88 @@ margin-left: 22%;
 .homeHeader{
   font-style: italic;
 }
+
 .homeParagraph{
   font-weight: 600;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   width: 60%;
 }
+.contactScreen{
+ display: flex;
+ flex-direction: row;
+}
+
+.leftPane{
+  background: linear-gradient(rgba(38, 21, 90, 0.234), rgba(255, 255, 255, 0.592)), url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Background.png') center/cover no-repeat;    width: 50%;
+  color: white;
+  height: 700px;
+}
+
+.rightPane{
+  color: #3500A5;
+  font-weight: bold;
+  margin-left: 5px;
+  background:url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Picture2.png') center/cover no-repeat;    width: 50%;
+ 
+}
+
+.contactHeader{
+  margin-bottom: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.rightHeader{
+  margin-bottom: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.companyMail{
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
+.companyMobile{
+  margin-bottom: 25px;
+}
+.location{
+  margin-bottom: 25px;
+}
+
+.input1, .input2{
+  margin-left: 10px;
+  height: 35px;
+  width:150px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  
+}
+
+.lastName{
+  margin-left: 50px;
+}
+
+.customerEmail, .number , .message{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.input3 , .input4{
+  margin-top: 5px;
+  height: 35px;
+  width:250px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input5{
+  margin-top: 5px;
+  height: 155px;
+  width:500px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+

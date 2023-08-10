@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  background: url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\back.png')  
+}
 
 .App-logo {
   height: 40vmin;
@@ -49,7 +52,7 @@
 
  .register{
   background-color: white;
-  color: #3500A5;
+  color: rgb(18, 5, 87);
   border-radius: 5px;
   padding: 10px;
   border-width: 0;
@@ -118,7 +121,6 @@ input{
 
 /* background: #3500A5; */
 .barStyle{
-  background-image: linear-gradient(79deg,#55319c, #3500A5 2%,#bcbdee 95%);
   padding: 0 10px;     
 }
 
@@ -135,32 +137,54 @@ left: 647px;
 top: 115px;
 margin-left: 22%;
 }
+.homeBackground{
+  background:  url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\pic1.png') center/cover no-repeat; 
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+.homeContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+}
 .home{
-  padding: 15px;
+  margin: 35px;
+  padding-top: 20px;
+  position: relative; /* Position the content relative to the container */
+  z-index: 1
 }
 
 .homeHeader{
   font-style: italic;
+  color: white;
 }
 
 .homeParagraph{
   font-weight: 600;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   width: 60%;
+  color: white;
 }
 .contactScreen{
  display: flex;
  flex-direction: row;
+ background-color: white;
 }
 
 .leftPane{
   background: linear-gradient(rgba(38, 21, 90, 0.234), rgba(255, 255, 255, 0.592)), url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Background.png') center/cover no-repeat;    width: 50%;
   color: white;
   height: 700px;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .rightPane{
-  color: #3500A5;
+  color: 0F0C3A;
   font-weight: bold;
   margin-left: 5px;
   background:url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Picture2.png') center/cover no-repeat;    width: 50%;
@@ -168,7 +192,7 @@ margin-left: 22%;
 }
 
 .contactHeader{
-  margin-bottom: 20px;
+  margin: 20px;
   font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
@@ -181,12 +205,15 @@ margin-left: 22%;
 .companyMail{
   margin-top: 70px;
   margin-bottom: 25px;
+  margin-left: 20px;
 }
 .companyMobile{
   margin-bottom: 25px;
+  margin-left: 20px;
 }
 .location{
   margin-bottom: 25px;
+  margin-left: 20px;
 }
 
 .input1, .input2{

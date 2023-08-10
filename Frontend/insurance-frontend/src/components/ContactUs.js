@@ -7,7 +7,7 @@ const ContactUs = () => {
     <div className='leftPane'>
       <h1 className='contactHeader'>Contact Information</h1>
       <p>
-      You can always reach out to us
+      &nbsp;&nbsp;&nbsp;&nbsp;You can always reach out to us
       </p>
       <div className='companyMail'>
       <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">

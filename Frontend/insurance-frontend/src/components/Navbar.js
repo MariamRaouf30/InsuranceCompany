@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
   const BarStyle = {
-    background: '#3500A5',
+    
     padding: '0 10px',     // Add some padding for spacing
     sticky: 'top',
   };

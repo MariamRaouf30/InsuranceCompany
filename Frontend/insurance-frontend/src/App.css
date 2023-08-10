@@ -69,8 +69,17 @@ body{
   border: 1px solid white;
   border-radius: 10px;
   padding: 20px ;
+  justify-content: center;
 }
 }
+.link-btn {
+  position: relative;
+  background-color: none;
+  border-radius: 10px;
+  color: black;
+  text-decoration: underline; 
+}
+
 input{
   height: 35px;
   width:200px;
@@ -174,6 +183,7 @@ margin-left: 22%;
  flex-direction: row;
  background-color: white;
 }
+
 
 .leftPane{
   background: linear-gradient(rgba(38, 21, 90, 0.234), rgba(255, 255, 255, 0.592)), url('D:\ASU_ENG\Projects\AXA\InsuranceCompany\Frontend\insurance-frontend\public\Background.png') center/cover no-repeat;    width: 50%;

@@ -10,7 +10,7 @@ export const Register = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
     const registerHandler = (event) =>{
-      event.preventDefault();
+      //event.preventDefault();
       // const customer = {name,password,email,phoneNumber}
       // console.log(customer);
       if (password !== confirmPassword) {
@@ -22,7 +22,7 @@ export const Register = (props) => {
           phone_number:phoneNumber,
         };
 
-        fetch('http://localhost:8090/customers',{
+        fetch('http://localhost:8081/register',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ export const Register = (props) => {
           }
           else{
             console.log("unsuccessful");
-            console.log(res);
+            //console.log(res);
             throw new Error('Network response was not ok');
           }
           return res.json()

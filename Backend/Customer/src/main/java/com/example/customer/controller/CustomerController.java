@@ -32,5 +32,27 @@ public class CustomerController {
         customerRepository.save(customer);
         return ResponseEntity.ok("Registration successful");
     }
+    @PostMapping("/loginCustomer")
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        // Add admin logic
+        boolean authenticated = authenticateUser(loginRequest.getName(), loginRequest.getPassword());
+
+        if (authenticated) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.badRequest().body("Login failed");
+        }
+    }
+
+    private boolean authenticateUser(String name, String password) {
+        Customer customer = customerRepository.findByname(name);
+
+        if (customer != null && password.matches(customer.getPassword())) {
+            return true;
+        }
+
+        return false;
+    }
+    
 
 }

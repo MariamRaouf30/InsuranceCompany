@@ -1,6 +1,7 @@
 package com.example.Login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.Login.Model.Login;
-import com.example.Login.service.LoginService;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,14 +21,16 @@ public class LoginController {
     private RestTemplate restTemplate;
 
     @PostMapping("/login")
-    public ResponseEntity<String> registerUser(@RequestBody Login login) {
-
+    public ResponseEntity<String> loginUser(@RequestBody Login login) {
         ResponseEntity<String> response = restTemplate.postForEntity(
-            "http://localhost:8090/api/customers/saveCustomer", login, String.class);
-        
+            "http://localhost:8090/api/customers/loginCustomer", login, String.class);
 
-        return ResponseEntity.ok("Login successful in Login Microservice");
-    }   
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
+        }
+    }
 }
 
 

@@ -10,4 +10,6 @@ import com.example.customer.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer,Integer>{
 
+    Customer findByname(String name);
+
 }

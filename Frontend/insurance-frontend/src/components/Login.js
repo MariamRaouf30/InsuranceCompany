@@ -8,17 +8,46 @@ const Login = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
-    const registerHandler = () =>{
-      navigate('/');
+    const loginHandler = () =>{
+       
+      fetch('http://localhost:8090/api/customers/loginCustomer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          password: password
+        })
+      }).then(async(res) => {
+        if (res.ok) {
+          console.log("success");
+          // const data = await res.json();
+          // localStorage.setItem('token', data.token); 
+          navigate('/services');
+        } else {
+          console.log("unsuccessful");
+         
+          setEmail(''); 
+          setPassword(''); 
+        }
+        return res.json();
+      }).then((data) => {
+        console.log(data);
+        localStorage.setItem('token', data.token);
+      }).catch(error => {
+        console.log("ERROR");
+      });
     };
+
   return (
-    <div className="form-container">
+    <div className="form-container" onSubmit={loginHandler}>
     <form className = "register-form">
-        <label htmlFor='email'>Email</label>
-        <input value={email} onChange={(e)=> setEmail(e.target.value)} type='email' placeholder='Enter your Email' id='email' name='email'/>
+        <label htmlFor='name'>Name</label>
+        <input value={name} onChange={(e)=> setName(e.target.value)} type='name' placeholder='Enter your name' id='name' name='name'/>
         <label htmlFor='password'>Password</label>
         <input value={password} onChange={(e)=> setPassword(e.target.value)}type='password' placeholder="********" id="password" name = "password"/>
-        <button className='submitBtn' onClick={()=>registerHandler()}> Submit </button>
+        <button className='submitBtn' onClick={()=>loginHandler()}> Submit </button>
         <label htmlFor = "Login">New Member?</label>
     <button className="link-btn" type= "Login" onClick={()=>navigate('/register')}>Register here.</button>
    
@@ -27,6 +56,6 @@ const Login = () => {
 </div>
 )
   
-}
+  }
 
 export default Login

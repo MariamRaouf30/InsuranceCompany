@@ -23,7 +23,7 @@ public class RegistrationController {
         ResponseEntity<String> response = restTemplate.postForEntity(
             "http://localhost:8090/api/customers/saveCustomer", registration, String.class);
         
-        // You can handle the response and return accordingly
+        
         return ResponseEntity.ok("Registration successful in Registration Microservice");
     }
 }

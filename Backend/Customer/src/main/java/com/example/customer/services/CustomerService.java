@@ -21,13 +21,13 @@ public class CustomerService {
    public Customer getCustomerById(String id){
     return null;
    }
-   @RequestMapping(value = "/customerss/{id}", method = RequestMethod.POST)
+   @RequestMapping(value = "/customers/{id}", method = RequestMethod.POST)
    public String createCustomer(@RequestBody Customer customer){
       HttpHeaders headers = new HttpHeaders();
       HttpEntity<Customer> entity = new HttpEntity<Customer>(customer,headers);
       
       return restTemplate.exchange(
-         "http://localhost:8090/customerss", HttpMethod.POST, entity, String.class).getBody();
+         "http://localhost:8090/customers", HttpMethod.POST, entity, String.class).getBody();
   
    }
 

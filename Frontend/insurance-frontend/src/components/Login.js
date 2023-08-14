@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
+import { STATUS } from './status.js';
 
 const Login = () => {
   const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
     const loginHandler = () =>{
-       
-      fetch('http://localhost:8090/api/customers/loginCustomer', {
-        method: 'POST',
+      fetch('http://localhost:8082/login', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -22,22 +20,23 @@ const Login = () => {
       }).then(async(res) => {
         if (res.ok) {
           console.log("success");
+          STATUS.isLogged = true;
+          navigate('/services');
           // const data = await res.json();
           // localStorage.setItem('token', data.token); 
-          navigate('/services');
+          
         } else {
           console.log("unsuccessful");
-         
           setEmail(''); 
           setPassword(''); 
         }
-        return res.json();
-      }).then((data) => {
-        console.log(data);
-        localStorage.setItem('token', data.token);
-      }).catch(error => {
-        console.log("ERROR");
-      });
+      //   return res.json();
+      // }).then((data) => {
+      //   console.log(data);
+      //   localStorage.setItem('token', data.token);
+      // }).catch(error => {
+      //   console.log("ERROR");
+       });
     };
 
   return (

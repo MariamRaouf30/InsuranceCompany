@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container, Nav, Navbar as NavbarBs } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { STATUS } from './status.js';
 
-//
 const Navbar = () => {
   const navigate = useNavigate();
+  const logoutHandle = () => {
+    STATUS.isLogged = false;
+    navigate('/');
+  };
   const BarStyle = {
     
     padding: '0 10px',     // Add some padding for spacing
@@ -67,7 +71,11 @@ const Navbar = () => {
     <NavLink style={navBarStyle} to="/">Home</NavLink>
     <NavLink style={navBarStyle} to="/contactUs">Contact Us</NavLink>
     <NavLink style={navBarStyle} to="/services">Our Services</NavLink>
-    <div className='register-container'>
+   {STATUS.isLogged? (
+                <button className='register'  variant="link" onClick={logoutHandle}>    Logut    
+</button>
+    ):
+    (<div className='register-container'>  
     <button className='register' onClick={()=>navigate("register")}>
       Join Us Now
       <svg
@@ -76,25 +84,23 @@ const Navbar = () => {
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ marginLeft: '5px' }} // Adjust margin as needed
-    >
+        style={{ marginLeft: '5px' }}>
         <path
             d="M11 7.99988H1"
             stroke="#3500A5"
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
-        />
+            strokeLinejoin="round"/>
         <path
             d="M8.33337 10.6665L11.0004 7.99946L8.33337 5.33246"
             stroke="#3500A5"
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
-        />
+            strokeLinejoin="round"/>
     </svg>
-      </button>
-    </div>
+      </button>  
+    </div>)
+      }
     </nav>
     
   );

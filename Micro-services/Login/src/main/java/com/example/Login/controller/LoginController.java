@@ -20,19 +20,17 @@ public class LoginController {
  @Autowired
     private RestTemplate restTemplate;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<String> loginUser(@RequestBody Login login) {
-        ResponseEntity<String> response = restTemplate.postForEntity(
-            "http://localhost:8090/api/customers/loginCustomer", login, String.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
+        String url = "http://localhost:8090/customers?name=" + login.getName();
+        
+        ResponseEntity<String> response = restTemplate.getForEntity(
+            url, String.class);
+        
+        if (response.getStatusCode() == ResponseEntity.status(HttpStatus.FOUND)) {
             return ResponseEntity.ok("Login successful");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
         }
     }
 }
-
-
-
-

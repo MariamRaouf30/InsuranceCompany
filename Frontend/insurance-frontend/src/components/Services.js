@@ -2,7 +2,12 @@ import React from 'react'
 
 const Services = () => {
   return (
-    <div>
+    <div 
+    style=
+    {{
+      color: "white",
+    }}
+    >
       Services
     </div>
   )

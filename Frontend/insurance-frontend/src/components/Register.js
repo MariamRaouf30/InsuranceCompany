@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
+import { STATUS } from './status.js';
 
-
-export const Register = (props) => {
+export const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
-    const registerHandler = (event) =>{
-      //event.preventDefault();
+    const registerHandler = async(event) =>{
+       event.preventDefault();
       // const customer = {name,password,email,phoneNumber}
       // console.log(customer);
       if (password !== confirmPassword) {
@@ -31,6 +31,7 @@ export const Register = (props) => {
         }).then(res => {
           if(res.ok){
             console.log("success")
+            STATUS.isLogged = true;
             navigate('/');
           }
           else{
@@ -38,17 +39,13 @@ export const Register = (props) => {
             //console.log(res);
             throw new Error('Network response was not ok');
           }
-          return res.json()
-        }).then(data => console.log(data))
-        .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
-        });
+             });
       }
     };
     
   return (
-    <div className="form-container" onSubmit={registerHandler}>
-        <form className = "register-form">
+    <div className="form-container" >
+        <form className = "register-form" onSubmit={registerHandler}>
             <label htmlFor='name'>Name</label>
             <input value ={name} onChange={(e)=> setName(e.target.value)} type="name" placeholder="Enter Your Name" id="name" name = "name"/>
             <label htmlFor='email'>Email</label>
@@ -58,8 +55,8 @@ export const Register = (props) => {
             <label htmlFor='confirmPassword'>Confirm Password</label>
             <input value={confirmPassword} onChange={(e)=> setConfirmPassword(e.target.value)}type='password' placeholder="********" id="confirmPassword" name = "confirmPassword"/>
             <label htmlFor='phoneNumber'>Phone Number</label>
-            <input value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)} type='phoneNumber' placeholder='Enter your Phone Number' id='phoneNumber' name='phoneNumber'/>
-            <button className='submitBtn' onClick={()=>registerHandler()}> Submit </button>
+            <input value={phoneNumber} onChange={(e)=> setPhoneNumber(e.target.value)} type='tel' placeholder='Enter your Phone Number' id='phoneNumber' name='phoneNumber'/>
+            <button className='submitBtn' onClick={(event)=>registerHandler(event)}> Submit </button>
             <label htmlFor = "Login">Already have an account?</label>
         <button className="link-btn" type= "Login" onClick={()=>navigate('/login')}>Login here.</button>
        

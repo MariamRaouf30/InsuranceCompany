@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.customer.model.Customer;
+import java.util.List;
+
 
 
 public interface CustomerRepository extends JpaRepository<Customer,Integer>{
 
-    Customer findByname(String name);
-
+    Customer findByName(String name);
+    Customer findByNameAndPassword(String name, String password);
 }

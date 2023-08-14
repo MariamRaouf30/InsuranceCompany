@@ -7,38 +7,27 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const loginHandler = () =>{
-      fetch('http://localhost:8082/login', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          password: password
-        })
-      }).then(async(res) => {
-        if (res.ok) {
-          console.log("success");
-          STATUS.isLogged = true;
-          navigate('/services');
-          // const data = await res.json();
-          // localStorage.setItem('token', data.token); 
-          
-        } else {
-          console.log("unsuccessful");
-          setEmail(''); 
-          setPassword(''); 
-        }
-      //   return res.json();
-      // }).then((data) => {
-      //   console.log(data);
-      //   localStorage.setItem('token', data.token);
-      // }).catch(error => {
-      //   console.log("ERROR");
-       });
+    const loginHandler = async(event) =>{
+      event.preventDefault();
+      try {
+        const response = await fetch(`http://localhost:8082/login/${name}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+                    },
+        });
+        if (response.ok) {
+          console.log('success');
+          navigate('/');
+          STATUS.isLogged =true;
+      } else {
+          console.log('unsuccessful');
+      }
+      } catch (error) {
+          console.log('ERROR:', error);
+      }
     };
-
+    
   return (
     <div className="form-container" onSubmit={loginHandler}>
     <form className = "register-form">
@@ -46,7 +35,7 @@ const Login = () => {
         <input value={name} onChange={(e)=> setName(e.target.value)} type='name' placeholder='Enter your name' id='name' name='name'/>
         <label htmlFor='password'>Password</label>
         <input value={password} onChange={(e)=> setPassword(e.target.value)}type='password' placeholder="********" id="password" name = "password"/>
-        <button className='submitBtn' onClick={()=>loginHandler()}> Submit </button>
+        <button className='submitBtn' onClick={(event)=>loginHandler(event)}> Submit </button>
         <label htmlFor = "Login">New Member?</label>
     <button className="link-btn" type= "Login" onClick={()=>navigate('/register')}>Register here.</button>
    

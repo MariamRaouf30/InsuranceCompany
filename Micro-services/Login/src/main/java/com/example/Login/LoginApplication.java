@@ -29,5 +29,5 @@ public class LoginApplication {
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
+    
 }

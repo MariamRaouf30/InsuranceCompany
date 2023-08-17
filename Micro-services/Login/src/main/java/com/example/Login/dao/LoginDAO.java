@@ -1,4 +1,4 @@
-package com.example.Login.Model;
+package com.example.Login.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Login {
+public class LoginDAO {
     private String name;
     private String password;  
 }

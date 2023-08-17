@@ -1,9 +1,9 @@
-package com.example.Registration.model;
+package com.example.Registration.dao;
 
 import lombok.Data;
 
 @Data
-public class Registration {
+public class RegistrationDAO {
     private String name;
     private String email;
     private String password;

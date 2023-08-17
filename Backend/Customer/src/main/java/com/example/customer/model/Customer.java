@@ -1,26 +1,23 @@
 package com.example.customer.model;
-//import org.springframework.cglib.core.Local;
-//import org.springframework.data.mongodb.core.mapping.Document;
+// import org.springframework.cglib.core.Local;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 @Data
-@Entity
-@Table(name = "customers")
+@Document
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
     
-    private @GeneratedValue @Id int id;
+    private String id;
     private String name;
     private String email;
     private String password;

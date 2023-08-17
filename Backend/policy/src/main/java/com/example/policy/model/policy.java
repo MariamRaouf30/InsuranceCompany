@@ -1,18 +1,21 @@
 package com.example.policy.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Table
+@Document
+@AllArgsConstructor
+@NoArgsConstructor
 public class Policy {
     @Id
-    int claim_id;
-    String name;
-    int number;
-    String claim_amount;
-    String type;
+    private int claim_id;
+    private String name;
+    private int number;
+    private String claim_amount;
+    private String type;
 }

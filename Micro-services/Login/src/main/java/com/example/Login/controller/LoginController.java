@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.Login.service.LoginService;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
 public class LoginController {
  @Autowired
-    private RestTemplate restTemplate;
+    private LoginService loginService;
 
     @GetMapping("/login/{name}")
     public ResponseEntity<String> loginUser(@PathVariable("name") String name) {
-        String url = "http://localhost:8090/customers/search/findByName?name=" + name;
-        
-        ResponseEntity<String> response = restTemplate.getForEntity(
-            url, String.class);
+
+        ResponseEntity<String> response = loginService.loginCustomer(name);
         System.out.println(response.getBody());
         if (response.getStatusCode().is2xxSuccessful()) {
             return ResponseEntity.ok("Login successful");

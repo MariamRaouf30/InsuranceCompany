@@ -1,4 +1,4 @@
-package com.example.customer.model;
+package com.example.Request.model;
 // import org.springframework.cglib.core.Local;
 
 // import jakarta.persistence.GeneratedValue;

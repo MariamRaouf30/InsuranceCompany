@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.Login.dao.LoginDAO;
+
 @Service
 public class LoginService {
         @Autowired
@@ -12,7 +14,7 @@ public class LoginService {
 
 
     public ResponseEntity<String> loginCustomer(String name) {
-        String url = "http://localhost:8090/customers/search/findByName?name=" + name;
+        String url = "http://localhost:8090/customers/search/findIdByName?name=" + name;
         ResponseEntity<String> response = restTemplate.getForEntity(
             url, String.class);
         return response;

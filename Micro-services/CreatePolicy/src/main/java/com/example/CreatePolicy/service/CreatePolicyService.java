@@ -16,8 +16,7 @@ public class CreatePolicyService {
     public ResponseEntity<String> createPolicy(CreatePolicyDAO policy) {
         ResponseEntity<String> response = restTemplate.postForEntity(
             "http://localhost:8083/policies", policy, String.class);
-            System.out.println("Response Status Code: " + response.getStatusCode());
-            System.out.println("Response Body: " + response.getBody());
+            
         return response;
     }   
 }

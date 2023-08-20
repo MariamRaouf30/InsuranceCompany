@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CustomerApplication",
+            "request": "launch",
+            "mainClass": "com.example.customer.CustomerApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CreatePolicyApplication",
+            "request": "launch",
+            "mainClass": "com.example.CreatePolicy.CreatePolicyApplication",
+            "projectName": "CreatePolicy"
+        },
+        {
+            "type": "java",
             "name": "Customer",
             "request": "launch",
             "mainClass": "com.example.customer.Customer",

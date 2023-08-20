@@ -1,5 +1,6 @@
 package com.example.policy.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,12 +9,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Document
+@Document(collection = "policies")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Policy {
     @Id
-    private int claim_id;
+    private ObjectId claim_id;
     private String name;
     private int number;
     private String claim_amount;

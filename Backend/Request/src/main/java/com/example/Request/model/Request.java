@@ -1,5 +1,7 @@
 package com.example.Request.model;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,4 +18,5 @@ public class Request {
     private String customer_name;
     private String policy_name;
     private String type;
+    private Customer customer;
 }

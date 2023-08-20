@@ -1,5 +1,8 @@
 package com.example.customer.model;
 
+import lombok.Data;
+
+@Data
 public class CustomerPolicy {
     private int claim_id;
     private String name;

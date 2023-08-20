@@ -18,15 +18,15 @@ public class CreatePolicyApplication {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-	// @Bean
-    // public CorsFilter corsFilter() {
-    //     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    //     CorsConfiguration config = new CorsConfiguration();
-    //     config.setAllowCredentials(true);
-    //     config.addAllowedOrigin("http://localhost:3000"); // Allow your React frontend's domain
-    //     config.addAllowedHeader("*");
-    //     config.addAllowedMethod("*");
-    //     source.registerCorsConfiguration("/**", config);
-    //     return new CorsFilter(source);
-    // }
+	@Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("http://localhost:3000"); // Allow your React frontend's domain
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
+    }
 }

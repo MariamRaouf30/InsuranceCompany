@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { STATUS } from './status.js';
+import {INFO} from './data/data.js'; 
 
 const Login = () => {
   const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [customerId, setCustomerId] = useState(null);
     const loginHandler = async(event) =>{
       event.preventDefault();
       try {
@@ -17,7 +19,14 @@ const Login = () => {
                     },
         });
         if (response.ok) {
+          const arr = await response.json();
+          console.log('Response arr String:', arr); 
+          const data = JSON.parse(arr);
+          console.log('Parsed Response:', data); 
+          console.log('Customer ID:', data._id); 
+          INFO.id = data._id;
           console.log('success');
+          console.log(INFO.id);
           navigate('/');
           STATUS.isLogged =true;
       } else {

@@ -24,6 +24,6 @@ public class Customer {
     private String password;
     private String phone_number;
     private LocalDate date;
-    private String policy_name;
-    private List<CustomerPolicy> policies;
+    private List<String> policy_name;
+    private List<String> policy_id;
 }

@@ -1,6 +1,8 @@
 package com.example.policy.model;
 
-import org.bson.types.ObjectId;
+import java.io.Serial;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,7 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Policy {
     @Id
-    private ObjectId claim_id;
+    private String policy_id;
+    private int claim_id;
     private String name;
     private int number;
     private String claim_amount;

@@ -14,9 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Request {
-    private ObjectId request_id;
-    private String customer_name;
-    private String policy_name;
+    @Id
+    private String request_id;
     private String type;
     private Customer customer;
 }

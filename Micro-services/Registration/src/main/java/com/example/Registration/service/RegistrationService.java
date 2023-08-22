@@ -13,9 +13,9 @@ public class RegistrationService {
     private RestTemplate restTemplate;
 
 
-    public ResponseEntity<String> registerCustomer(RegistrationDAO registration) {
-        ResponseEntity<String> response = restTemplate.postForEntity(
-            "http://localhost:8090/customers", registration, String.class);
+    public ResponseEntity<RegistrationDAO> registerCustomer(RegistrationDAO registration) {
+        ResponseEntity<RegistrationDAO> response = restTemplate.postForEntity(
+            "http://localhost:8090/customers", registration, RegistrationDAO.class);
         return response;
     }
 }

@@ -14,8 +14,8 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody RegistrationDAO registration) {
-        ResponseEntity<String> response = registrationService.registerCustomer(registration);
-        return ResponseEntity.ok("Registration successful in Registration Microservice");
+    public ResponseEntity<RegistrationDAO> registerUser(@RequestBody RegistrationDAO registration) {
+        ResponseEntity<RegistrationDAO> response = registrationService.registerCustomer(registration);
+        return response;
     }
 }

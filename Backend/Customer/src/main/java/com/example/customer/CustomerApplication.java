@@ -13,6 +13,9 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.example.customer.model.Customer;
+import com.mongodb.internal.connection.Server;
+
+import io.grpc.ServerBuilder;
 
 @SpringBootApplication
 public class CustomerApplication  implements RepositoryRestConfigurer  {
@@ -24,7 +27,6 @@ public class CustomerApplication  implements RepositoryRestConfigurer  {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
 
     @Bean
     public CorsFilter corsFilter() {
@@ -41,4 +43,10 @@ public class CustomerApplication  implements RepositoryRestConfigurer  {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Customer.class);
     }
+    // @Bean
+    // public Server grpcServer() {
+    //     return ServerBuilder.forPort(8000) 
+    //             .addService(new CustomerGrpcServiceImpl())
+    //             .build();
+    // }
 }

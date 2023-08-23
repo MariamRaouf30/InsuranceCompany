@@ -1,4 +1,4 @@
-package com.example.CreatePolicy.dao;
+package com.example.CustomerPolicy.dao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,6 +15,5 @@ public class CustomerDAO {
     private String phone_number;
     private LocalDate date;
     private List<String> policy_name = new ArrayList<>();
-    private List<PolicyDAO> policy = new ArrayList<>();
     private List<String> policy_id = new ArrayList<>();
 }

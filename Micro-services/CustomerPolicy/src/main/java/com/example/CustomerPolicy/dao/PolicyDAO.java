@@ -1,6 +1,9 @@
-package com.example.customer.model;
+package com.example.CustomerPolicy.dao;
 
-public class Policy {
+import lombok.Data;
+
+@Data
+public class PolicyDAO {
     private String policy_id;
     private int claim_id;
     private String name;

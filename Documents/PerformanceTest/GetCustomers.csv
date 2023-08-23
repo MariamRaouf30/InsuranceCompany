@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1692823891804,148,HTTP Request,200,,Thread Group 7-1,text,true,,12245,125,1,42,http://localhost:8090/customers,148,0,1
+1692823892014,213,HTTP Request,200,,Thread Group 7-2,text,true,,12245,125,2,82,http://localhost:8090/customers,198,0,1
+1692823892205,1393,HTTP Request,200,,Thread Group 7-3,text,true,,12284,125,3,142,http://localhost:8090/customers,1387,0,1
+1692823892404,1307,HTTP Request,200,,Thread Group 7-4,text,true,,12284,125,2,131,http://localhost:8090/customers,1304,0,1
+1692823892605,1489,HTTP Request,200,,Thread Group 7-5,text,true,,12284,125,1,97,http://localhost:8090/customers,1489,0,1

@@ -1,5 +1,4 @@
 package com.example.customer.model;
-// import org.springframework.cglib.core.Local;
 
 import lombok.Data;
 import java.time.LocalDate;

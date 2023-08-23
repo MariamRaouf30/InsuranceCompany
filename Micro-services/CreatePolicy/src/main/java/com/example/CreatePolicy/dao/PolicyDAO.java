@@ -1,7 +1,5 @@
 package com.example.CreatePolicy.dao;
 
-import org.springframework.data.annotation.Id;
-
 import lombok.Data;
 
 @Data

@@ -1,0 +1,52 @@
+syntax = "proto3";
+import  "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.proto.customer";
+option java_outer_classname = "CustomersProto";
+ 
+service CustomerService {
+  rpc createCustomer(CreateCustomerRequest) returns (CustomerResponse) {};
+  rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse) {};
+}
+ 
+message CreateCustomerRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    string phone_number = 4;
+    string date = 5; 
+    repeated string policy_name = 6;
+    repeated string policy_id = 7;
+}
+ 
+message CustomerResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string password = 4;
+    string phone_number = 5;
+    google.protobuf.Timestamp date = 6; 
+    repeated string policy_name = 7;
+    repeated string policy_id = 8;
+}
+message GetAllCustomersRequest {}
+  
+  message Customer {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string password = 4;
+    string phone_number = 5;
+    google.protobuf.Timestamp date = 6; 
+    repeated string policy_name = 7;
+    repeated string policy_id = 8;
+  }
+  
+  message GetAllCustomersResponse {
+    repeated Customer customers = 1;
+  }
+
+  
+  
+  

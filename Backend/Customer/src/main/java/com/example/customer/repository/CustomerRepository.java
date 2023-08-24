@@ -14,5 +14,5 @@ import com.example.customer.model.Customer;
 
 public interface CustomerRepository extends MongoRepository<Customer,String>{
     String findIdByName(String name);
-
+    List<Customer> findAll();
 }

@@ -4,9 +4,12 @@ import com.proto.customer.CustomerServiceGrpc.CustomerServiceImplBase;
 
 import ch.qos.logback.classic.Logger;
 import io.grpc.stub.StreamObserver;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
 
 import com.example.customer.model.Customer;
 import com.example.customer.repository.CustomerRepository;
@@ -15,11 +18,9 @@ import com.proto.customer.CustomerResponse;
 import com.proto.customer.CustomerServiceGrpc;
 import com.proto.customer.GetAllCustomersRequest;
 import com.proto.customer.GetAllCustomersResponse;
+
 public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase{
-    private final CustomerRepository customerRepository;
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+    private final CustomerRepository customerRepository = null ;
 @Override
 public void getAllCustomers(GetAllCustomersRequest request, StreamObserver<GetAllCustomersResponse> responseObserver) {
     List<Customer> customers = customerRepository.findAll();

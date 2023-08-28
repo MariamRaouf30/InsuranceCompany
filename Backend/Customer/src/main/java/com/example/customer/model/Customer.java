@@ -1,6 +1,8 @@
 package com.example.customer.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -8,7 +10,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+import com.google.protobuf.Timestamp;
+
 @Document(collection = "customers")
 public class Customer {
     @Id

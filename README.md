@@ -46,6 +46,7 @@ The project Consists of 3 main domains:
 * Customer.
 * Policy.
 * Request.
+  
 The project includes the needed microservices to connect with backend:
 * Registration.
 * Login.

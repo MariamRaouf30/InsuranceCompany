@@ -13,11 +13,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.example.customer.grpc.CustomerServer;
 import com.example.customer.model.Customer;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+
 @SpringBootApplication
-public class CustomerApplication  implements RepositoryRestConfigurer  {
+public class CustomerApplication  implements RepositoryRestConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(CustomerApplication.class, args);
     }

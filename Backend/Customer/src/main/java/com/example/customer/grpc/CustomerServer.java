@@ -8,9 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public class CustomerServer {
+    
     private Server server;
     public void startServer(){
-        int port = 9095;
+        int port = 50001;
          try {
             server = ServerBuilder.forPort(port)
                     .addService(new CustomerService())

@@ -5,6 +5,8 @@ import com.proto.customer.CustomerServiceGrpc.CustomerServiceImplBase;
 import ch.qos.logback.classic.Logger;
 import io.grpc.stub.StreamObserver;
 import lombok.NoArgsConstructor;
+import net.devh.boot.grpc.server.service.GrpcService;
+
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -28,9 +30,9 @@ import com.proto.customer.GetAllCustomersRequest;
 import com.proto.customer.GetAllCustomersResponse;
 
 
-
+@GrpcService
 public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase{
-    @Autowired
+   
     private CustomerRepository customerRepository;
    
 
@@ -44,10 +46,9 @@ public void getAllCustomers(GetAllCustomersRequest request, StreamObserver<GetAl
                 .setEmail(customer.getEmail())
                 .setPassword(customer.getPassword())
                 .setPhoneNumber(customer.getPhone_number())
-                .setDate(Timestamp.valueOf("10/10/10"))
                 .addAllPolicyName(customer.getPolicy_name())
                 .addAllPolicyId(customer.getPolicy_id())
-                .build())
+                 .build())
                 .collect(Collectors.toList());
     GetAllCustomersResponse response = GetAllCustomersResponse.newBuilder().addAllCustomers(customersResponse).build();
     responseObserver.onNext(response);

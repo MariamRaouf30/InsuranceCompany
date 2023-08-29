@@ -12,6 +12,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.protobuf.Timestamp;
 
+
+@Data
 @Document(collection = "customers")
 public class Customer {
     @Id

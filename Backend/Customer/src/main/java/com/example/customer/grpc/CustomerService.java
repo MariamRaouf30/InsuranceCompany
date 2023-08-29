@@ -30,7 +30,7 @@ import com.proto.customer.GetAllCustomersRequest;
 import com.proto.customer.GetAllCustomersResponse;
 
 
-@GrpcService
+
 public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase{
    
     private CustomerRepository customerRepository;

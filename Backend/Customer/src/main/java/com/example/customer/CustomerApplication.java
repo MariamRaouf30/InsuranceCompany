@@ -38,12 +38,12 @@ public class CustomerApplication  implements RepositoryRestConfigurer {
         return new CorsFilter(source);
     }
 
-    @Bean
-    public void grpcServer() throws InterruptedException{
-        CustomerServer customerServer = new CustomerServer();
-        customerServer.startServer();
-        customerServer.blockUntilShutdown();
-    }
+    // @Bean
+    // public void grpcServer() throws InterruptedException{
+    //     CustomerServer customerServer = new CustomerServer();
+    //     customerServer.startServer();
+    //     customerServer.blockUntilShutdown();
+    // }
 
      @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {

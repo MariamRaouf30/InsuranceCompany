@@ -1,17 +1,12 @@
 package com.example.customer.repository;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
-
 import com.example.customer.model.Customer;
+import org.springframework.stereotype.Repository;
 
 
-
-
+@Repository
 public interface CustomerRepository extends MongoRepository<Customer,String>{
     String findIdByName(String name);
     List<Customer> findAll();

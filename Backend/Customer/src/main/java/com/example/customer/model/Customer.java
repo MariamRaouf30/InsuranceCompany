@@ -1,18 +1,21 @@
 package com.example.customer.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.google.protobuf.Timestamp;
 
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Document(collection = "customers")
 public class Customer {
@@ -22,7 +25,7 @@ public class Customer {
     private String email;
     private String password;
     private String phone_number;
-    private LocalDate date;
+    
     private List<String> policy_name;
     private List<String> policy_id;
     // @DBRef

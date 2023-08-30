@@ -11,13 +11,16 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
-import com.example.customer.grpc.CustomerServer;
 import com.example.customer.model.Customer;
+
+
 
 
 @SpringBootApplication
 public class CustomerApplication  implements RepositoryRestConfigurer {
+
     public static void main(String[] args) {
+        
         SpringApplication.run(CustomerApplication.class, args);
     }
 
@@ -38,21 +41,10 @@ public class CustomerApplication  implements RepositoryRestConfigurer {
         return new CorsFilter(source);
     }
 
-    // @Bean
-    // public void grpcServer() throws InterruptedException{
-    //     CustomerServer customerServer = new CustomerServer();
-    //     customerServer.startServer();
-    //     customerServer.blockUntilShutdown();
-    // }
 
      @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Customer.class);
     }
-    // @Bean
-    // public Server grpcServer() {
-    //     return ServerBuilder.forPort(8000) 
-    //             .addService(new CustomerGrpcServiceImpl())
-    //             .build();
-    // }
+    
 }

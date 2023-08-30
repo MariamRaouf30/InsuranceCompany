@@ -14,7 +14,7 @@ public class GetCustomersApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GetCustomersApplication.class, args);
 	}
- @Bean
+    @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }

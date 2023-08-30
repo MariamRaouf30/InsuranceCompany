@@ -17,7 +17,6 @@ import com.example.customer.GetAllCustomersResponse;
 @GrpcService
 public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase{
 
-
     private CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {

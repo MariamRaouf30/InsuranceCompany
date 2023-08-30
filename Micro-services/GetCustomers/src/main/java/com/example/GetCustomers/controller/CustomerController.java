@@ -1,12 +1,11 @@
 package com.example.GetCustomers.controller;
 import java.util.List;
 
+import com.example.GetCustomers.clientgrpc.ClientService;
+//import com.proto.GetCustomers.Customer;
+import com.example.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.GetCustomers.dao.CustomersDAO;
 import com.example.GetCustomers.service.GetCustomerService;
@@ -15,10 +14,15 @@ import com.example.GetCustomers.service.GetCustomerService;
 public class CustomerController {
     @Autowired
     private GetCustomerService customerService;
-    
+    @Autowired
+    private ClientService clientService;
     @GetMapping("/getallcustomers")
-     public  List<CustomersDAO> getCustomers()
-    {
+     public  List<CustomersDAO> getCustomers(){
         return customerService.getCustomers();
+    }
+
+    @RequestMapping(value = "/getcustomersgrpc", method = RequestMethod.GET)
+    public List<Customer> grpcCustomer(){
+        return clientService.getCustomers();
     }
 }

@@ -48,16 +48,12 @@ Built on a microservices architecture, the project leverages the speed and effic
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Spring][Spring.io]][Spring-url]
+* ![Spring Boot 3.0](https://img.shields.io/badge/Spring%20Boot-3.0-brightgreen.svg)
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* ![Lombok](https://img.shields.io/badge/Lombok-3.0-brightgreen.svg)
+* ![Mongodb 3.0](https://img.shields.io/badge/Mongodb%20-3.0-brightgreen.svg)
+* <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img alt="JDK" src="https://img.shields.io/badge/JDK-17-orange.svg"/></a>
+
 
 ### Methodologies
 * Microservices Architecture:

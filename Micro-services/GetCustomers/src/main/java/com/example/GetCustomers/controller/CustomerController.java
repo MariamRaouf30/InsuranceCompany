@@ -22,7 +22,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/getcustomersgrpc", method = RequestMethod.GET)
-    public List<Customer> grpcCustomer(){
+    public List<Customer> grpcCustomer() throws Exception{
         return clientService.getCustomers();
     }
 }

@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+ <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -17,6 +17,9 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+          <li><a href="#built-with">Methodologies</a></li>
+          <li><a href="#built-with">Domains</a></li>
+          <li><a href="#built-with">Microservices</a></li>
       </ul>
     </li>
     <li>
@@ -37,15 +40,48 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+The Insurance Company System is a comprehensive solution designed to manage customer information, policy creation, and customer requests using a powerful blend of REST and gRPC communication protocols. The project leverages a combination of Spring Boot, REST, gRPC, Lombok, and MongoDB to provide a seamless and user-friendly experience for both administrators and customers.
+Built on a microservices architecture, the project leverages the speed and efficiency of gRPC, combined with the familiarity of REST. This dynamic combination enables efficient and high-performance interactions between microservices while ensuring broad accessibility and easy integration for external clients.
 
-Insurance Company project to provide an application that adds customers that can create policies and issue requests on the system.
 
-The project Consists of 3 main domains:
-* Customer.
-* Policy.
-* Request.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Built With
+
+* ![Spring Boot 3.0](https://img.shields.io/badge/Spring%20Boot-3.0-brightgreen.svg)
+* [![React][React.js]][React-url]
+* ![Lombok](https://img.shields.io/badge/Lombok-3.0-brightgreen.svg)
+* ![Mongodb 3.0](https://img.shields.io/badge/Mongodb%20-3.0-brightgreen.svg)
+* <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img alt="JDK" src="https://img.shields.io/badge/JDK-17-orange.svg"/></a>
+
+
+### Methodologies
+* Microservices Architecture:
+The system is designed as a collection of loosely coupled microservices, each focused on specific business functionalities. This architecture ensures independent deployment of services.
+
+* Domain-Driven Design (DDD):
+The project follows domain-driven design principles to align software design with the business domain, making the software more accurate and easier to maintain.
+
+* Query-First Approach:
+The system adopts a query-first approach, ensuring that data retrieval and presentation are optimized for efficient user experiences. This approach enhances the performance and responsiveness of customer interactions.
+
+### Domains
+Key Domains of the system:
+* Customer:
   
-The project includes the needed microservices to connect with backend:
+Customers interact with the system to view policies, make requests, and manage their information.
+
+* Policy:
+
+This domain focuses on policy management. Policies are created and viewed by Customers.
+  
+* Request:
+
+The request domain enables customers to submit various types of requests to update personal details.
+
+### Microservices
+Microservices that access domains:
+
 * Registration.
 * Login.
 * CreatePolicy.
@@ -53,21 +89,6 @@ The project includes the needed microservices to connect with backend:
 * GetPolicies.
 * MakeRequest.
 * CustomerPolicy. (to create both customers and policies)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Spring][Spring.io]][Spring-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,21 +110,18 @@ Get started with the project
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone [https://github.com/your_username_/Project-Name.git](https://github.com/MariamRaouf30/InsuranceCompany)
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+(For Frontend)
+3. Springboot Extension to run the application
+4. Configure port connections
+5. Start your application after building
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,10 +129,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-This system is useful for insurance company systems, where customers can create accounts, have and edit policies as desired, issue requests
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
+The system is designed for scalability, adaptability and enhanced performance. It accommodates evolving business needs. Additional microservices can be seamlessly integrated to enhance functionality, keeping the system responsive to industry needs and customer expectations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,7 +145,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [x] Add Microservices.
 - [x] Frontend Project.
 - [ ] Test project performance. 
-    - [ ] RESTful API 
+    - [x] RESTful API 
     - [ ] gRpc
 
 
@@ -151,17 +166,16 @@ Project Link: [https://github.com/MariamRaouf30/InsuranceCompany](https://github
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+List of resources found helpful.
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* (https://start.spring.io/)
+* [Rest template](https://spring.io/projects/spring-data-rest)
+* [gRPC and Spring boot example](https://www.north-47.com/grpc-communication-basic-configuration-for-spring-boot-microservices/)
+* [MongoRepository Interface](https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/repository/MongoRepository.html)
+* [Lombok](https://www.baeldung.com/intro-to-project-lombok)
+* [Services](https://www.tutorialspoint.com/spring_boot/spring_boot_service_components.htm)
+* [Jmeter](https://jmeter.apache.org/)
+  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

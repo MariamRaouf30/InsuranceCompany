@@ -6,6 +6,7 @@ import com.example.customer.CustomerServiceGrpc;
 import com.example.customer.GetAllCustomersRequest;
 import com.example.customer.GetAllCustomersResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -13,6 +14,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class ClientService {
 
@@ -21,12 +23,13 @@ public class ClientService {
 
     public List<Customer> getCustomers() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        if (isGrpcRequest(request)) {
-            return getCustomersGrpc();
-        } else {
-            //rest function
-           return getCustomersGrpc();
-        }
+        return getCustomersGrpc();
+//        if (isGrpcRequest(request)) {
+//            return getCustomersGrpc();
+//        } else {
+//            //rest function
+//           return getCustomersGrpc();
+//        }
     }
 
     private boolean isRestRequest(HttpServletRequest request) {
@@ -38,7 +41,9 @@ public class ClientService {
     }
 
     public List<Customer> getCustomersGrpc(){
-        final GetAllCustomersResponse response = this.serviceClient.getAllCustomers(GetAllCustomersRequest.newBuilder().build());
+
+        final GetAllCustomersResponse response = serviceClient.getAllCustomers(GetAllCustomersRequest.newBuilder().build());
+        System.out.println(response);
         return response.getCustomersList();
     }
 //    public List<Customer> getCustomersRest{

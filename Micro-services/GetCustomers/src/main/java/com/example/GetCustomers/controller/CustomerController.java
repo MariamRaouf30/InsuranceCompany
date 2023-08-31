@@ -4,11 +4,15 @@ import java.util.List;
 import com.example.GetCustomers.clientgrpc.ClientService;
 //import com.proto.GetCustomers.Customer;
 import com.example.customer.Customer;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.GetCustomers.dao.CustomersDAO;
 import com.example.GetCustomers.service.GetCustomerService;
+
 
 @RestController
 public class CustomerController {
@@ -16,13 +20,26 @@ public class CustomerController {
     private GetCustomerService customerService;
     @Autowired
     private ClientService clientService;
+
+   // Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
+//    @RequestMapping("/")
+//    public String index() {
+//        logger.trace("A TRACE Message");
+//        logger.debug("A DEBUG Message");
+//        logger.info("An INFO Message");
+//        logger.warn("A WARN Message");
+//        logger.error("An ERROR Message");
+//
+//        return "!! Check out the Logs to see the output...";
+//    }
     @GetMapping("/getallcustomers")
      public  List<CustomersDAO> getCustomers(){
         return customerService.getCustomers();
     }
 
     @RequestMapping(value = "/getcustomersgrpc", method = RequestMethod.GET)
-    public List<Customer> grpcCustomer() throws Exception{
+    public List<Customer> grpcCustomer() throws Exception {
         return clientService.getCustomers();
     }
 }

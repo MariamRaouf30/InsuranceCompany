@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package com.proto.policy;
+
+option java_multiple_files = true;
+option java_package = "com.example.policy";
+
+
+service PolicyService {
+  rpc createPolicy(CreatePolicyRequest) returns (PolicyResponse) {};
+  rpc getAllPolicies(GetAllPoliciesRequest) returns (GetAllPoliciesResponse) {};
+}
+
+message CreatePolicyRequest {
+  string policy_id = 1;
+  int32 claim_id = 2;
+  string name = 3;
+  int32 number = 4;
+  string claim_amount = 5;
+  string type = 6;
+  string customer_name = 7;
+  string customer_number = 8;
+  string customer_email = 9;
+}
+
+message PolicyResponse {
+  string id = 1;
+}
+message GetAllPoliciesRequest {}
+
+message Policy {
+  string policy_id = 1;
+  int32 claim_id = 2;
+  string name = 3;
+  int32 number = 4;
+  string claim_amount = 5;
+  string type = 6;
+  string customer_name = 7;
+  string customer_number = 8;
+  string customer_email = 9;
+}
+
+message GetAllPoliciesResponse {
+  repeated Policy policy = 1;
+}
+
+
+

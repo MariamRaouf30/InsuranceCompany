@@ -5,13 +5,13 @@ import com.example.customer.Customer;
 import com.example.customer.CustomerServiceGrpc;
 import com.example.customer.GetAllCustomersRequest;
 import com.example.customer.GetAllCustomersResponse;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Slf4j
@@ -43,7 +43,6 @@ public class ClientService {
     public List<Customer> getCustomersGrpc(){
 
         final GetAllCustomersResponse response = serviceClient.getAllCustomers(GetAllCustomersRequest.newBuilder().build());
-        System.out.println(response);
         return response.getCustomersList();
     }
 //    public List<Customer> getCustomersRest{

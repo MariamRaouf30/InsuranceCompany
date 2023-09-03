@@ -27,4 +27,14 @@ public class GetCustomerService {
         );
         return customersResponse.getBody().get_embedded().getCustomers();
     }
+
+    public String getCustomersGrpc() {
+        ResponseEntity<String> customersResponse = restTemplate.exchange(
+                "http://localhost:8075/grpccustomers",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {}
+        );
+        return customersResponse.getBody();
+    }
 }

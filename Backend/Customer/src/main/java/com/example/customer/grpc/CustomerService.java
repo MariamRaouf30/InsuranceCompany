@@ -1,17 +1,15 @@
 package com.example.customer.grpc;
 
+import com.example.customer.*;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import net.devh.boot.grpc.server.service.GrpcService;
 import com.example.customer.model.Customer;
 import com.example.customer.repository.CustomerRepository;
-import com.example.customer.CreateCustomerRequest;
-import com.example.customer.CustomerResponse;
-import com.example.customer.CustomerServiceGrpc;
-import com.example.customer.GetAllCustomersRequest;
-import com.example.customer.GetAllCustomersResponse;
 
 
 @GrpcService
@@ -72,6 +70,53 @@ public void createCustomer(CreateCustomerRequest request, StreamObserver<Custome
     responseObserver.onNext(response);
     responseObserver.onCompleted();
 }
+
+    @Override
+    public void updateCustomer(UpdateCustomerRequest request,StreamObserver<UpdateCustomerResponse> responseObserver){
+    String id = request.getId();
+    Optional<Customer> existingCustomer = customerRepository.findById(id);
+    if(existingCustomer.isPresent()){
+        Customer customerToUpdate = existingCustomer.get();
+        if(request.getName() != null){
+            customerToUpdate.setName(request.getName());
+        }
+        if(request.getEmail()!=null){
+            customerToUpdate.setEmail(request.getEmail());
+        }
+        if(request.getPhoneNumber()!=null){
+            customerToUpdate.setPhone_number(request.getPhoneNumber());
+        }
+        Customer updatedCustomer = customerRepository.save(customerToUpdate);
+        UpdateCustomerResponse response = UpdateCustomerResponse.newBuilder()
+                .setId(updatedCustomer.getId())
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    } else {
+        // Handle the case where the customer with the specified ID was not found
+        responseObserver.onError(Status.NOT_FOUND.withDescription("Customer not found").asRuntimeException());
+    }
+
+    }
+    @Override
+    public void getById(GetByIdRequest request,StreamObserver<GetByIdResponse> responseObserver){
+        String id = request.getId();
+        Optional<Customer> existingCustomer = customerRepository.findById(id);
+        if(existingCustomer.isPresent()) {
+            Customer customer = existingCustomer.get();
+            com.example.customer.Customer customersResponse =
+                     com.example.customer.Customer.newBuilder()
+                                    .setId(customer.getId())
+                                    .setName(customer.getName())
+                                    .setEmail(customer.getEmail())
+                                    .setPassword(customer.getPassword())
+                                    .setPhoneNumber(customer.getPhone_number())
+                                    .build();
+            GetByIdResponse response = GetByIdResponse.newBuilder().setCustomer(customersResponse).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
 }
 
 

@@ -9,6 +9,8 @@ option java_package = "com.example.customer";
 service CustomerService {
   rpc createCustomer(CreateCustomerRequest) returns (CustomerResponse) {};
   rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse) {};
+  rpc getById(GetByIdRequest) returns(GetByIdResponse){};
+  rpc updateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse);
 }
  
 message CreateCustomerRequest {
@@ -39,6 +41,22 @@ message GetAllCustomersRequest {}
     repeated Customer customers = 1;
   }
 
-  
-  
-  
+message UpdateCustomerRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phone_number = 4;
+}
+
+
+message UpdateCustomerResponse {
+  string id = 1;
+}
+
+message GetByIdRequest{
+  string id = 1;
+}
+
+message GetByIdResponse{
+  Customer customer = 1;
+}

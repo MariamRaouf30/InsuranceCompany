@@ -43,9 +43,8 @@ message GetAllCustomersRequest {}
 
 message UpdateCustomerRequest {
   string id = 1;
-  string name = 2;
-  string email = 3;
-  string phone_number = 4;
+  string policy_name = 2;
+  string policy_id = 3;
 }
 
 

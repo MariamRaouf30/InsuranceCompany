@@ -35,7 +35,6 @@ public class PolicyService extends PolicyServiceGrpc.PolicyServiceImplBase {
     }
     @Override
     public void createPolicy(CreatePolicyRequest request, StreamObserver<PolicyResponse>responseObserver){
-        String policyId = request.getPolicyId();
         int claimId = request.getClaimId();
         String name = request.getName();
         int number = request.getNumber();
@@ -46,7 +45,6 @@ public class PolicyService extends PolicyServiceGrpc.PolicyServiceImplBase {
         String customerNumber = request.getCustomerNumber();
 
         com.example.policy.model.Policy newPolicy = new com.example.policy.model.Policy();
-        newPolicy.setPolicy_id(policyId);
         newPolicy.setClaim_id(claimId);
         newPolicy.setName(name);
         newPolicy.setNumber(number);

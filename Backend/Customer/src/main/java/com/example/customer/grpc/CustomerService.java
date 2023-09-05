@@ -77,14 +77,11 @@ public void createCustomer(CreateCustomerRequest request, StreamObserver<Custome
     Optional<Customer> existingCustomer = customerRepository.findById(id);
     if(existingCustomer.isPresent()){
         Customer customerToUpdate = existingCustomer.get();
-        if(request.getName() != null){
-            customerToUpdate.setName(request.getName());
+        if(request.getPolicyId() != null){
+            customerToUpdate.getPolicy_id().add(request.getPolicyId());
         }
-        if(request.getEmail()!=null){
-            customerToUpdate.setEmail(request.getEmail());
-        }
-        if(request.getPhoneNumber()!=null){
-            customerToUpdate.setPhone_number(request.getPhoneNumber());
+        if(request.getPolicyName()!=null){
+            customerToUpdate.getPolicy_name().add(request.getPolicyName());
         }
         Customer updatedCustomer = customerRepository.save(customerToUpdate);
         UpdateCustomerResponse response = UpdateCustomerResponse.newBuilder()

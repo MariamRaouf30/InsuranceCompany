@@ -10,6 +10,7 @@ service CustomerService {
   rpc createCustomer(CreateCustomerRequest) returns (CustomerResponse) {};
   rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse) {};
   rpc getById(GetByIdRequest) returns(GetByIdResponse){};
+  rpc getByName(GetByNameRequest) returns(GetByNameResponse){};
   rpc updateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse);
 }
  
@@ -57,5 +58,12 @@ message GetByIdRequest{
 }
 
 message GetByIdResponse{
+  Customer customer = 1;
+}
+message GetByNameRequest{
+  string name = 1;
+}
+
+message GetByNameResponse{
   Customer customer = 1;
 }

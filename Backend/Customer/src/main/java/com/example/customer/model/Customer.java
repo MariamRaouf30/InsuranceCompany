@@ -28,7 +28,5 @@ public class Customer {
     
     private List<String> policy_name;
     private List<String> policy_id;
-    // @DBRef
-    // private List<Policy> policy; 
 }
 

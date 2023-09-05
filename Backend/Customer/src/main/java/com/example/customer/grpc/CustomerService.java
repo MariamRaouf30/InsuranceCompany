@@ -114,6 +114,24 @@ public void createCustomer(CreateCustomerRequest request, StreamObserver<Custome
             responseObserver.onCompleted();
         }
     }
+    @Override
+    public void getByName(GetByNameRequest request,StreamObserver<GetByNameResponse> responseObserver){
+        String name = request.getName();
+        Customer customer = customerRepository.findByName(name);
+        if(customer !=null) {
+            com.example.customer.Customer customersResponse =
+                     com.example.customer.Customer.newBuilder()
+                                    .setId(customer.getId())
+                                    .setName(customer.getName())
+                                    .setEmail(customer.getEmail())
+                                    .setPassword(customer.getPassword())
+                                    .setPhoneNumber(customer.getPhone_number())
+                                    .build();
+            GetByNameResponse response = GetByNameResponse.newBuilder().setCustomer(customersResponse).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
 }
 
 

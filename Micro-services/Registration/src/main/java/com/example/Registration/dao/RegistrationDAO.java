@@ -1,12 +1,13 @@
 package com.example.Registration.dao;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 import lombok.Data;
 
 @Data
-public class RegistrationDAO {
+public class RegistrationDAO implements Serializable {
     private String id;
     private String name;
     private String email;

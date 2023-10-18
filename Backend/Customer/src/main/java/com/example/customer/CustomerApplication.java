@@ -27,8 +27,8 @@ public class CustomerApplication  implements RepositoryRestConfigurer {
         
         SpringApplication.run(CustomerApplication.class, args);
     }
-        private static final String QUEUE_NAME = "customer-queue";
-    private static final String EXCHANGE_NAME = "customer.create";
+    //     private static final String QUEUE_NAME = "customer-queue";
+    // private static final String EXCHANGE_NAME = "customer.create";
 
     // @Bean
     // public Queue queueProducer(){
@@ -45,10 +45,10 @@ public class CustomerApplication  implements RepositoryRestConfigurer {
     //     return BindingBuilder.bind(queue).to(exchange).with("customer.queue");
     // }
 
-    // @Bean
-    // public RestTemplate restTemplate() {
-    //     return new RestTemplate();
-    // }
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Bean
     public CorsFilter corsFilter() {

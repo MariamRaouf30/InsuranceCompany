@@ -23,7 +23,7 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         
-        rabbitTemplate.convertAndSend("operations", "customer", objectMapper.writeValueAsString(args));
-        context.close();
+        rabbitTemplate.convertAndSend("customer.create", "customer-queue", objectMapper.writeValueAsString(args));
+        
     }
 }

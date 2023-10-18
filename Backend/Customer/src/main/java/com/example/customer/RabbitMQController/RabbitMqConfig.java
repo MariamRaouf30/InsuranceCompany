@@ -15,7 +15,7 @@ import org.springframework.amqp.core.Binding;
 public class RabbitMqConfig {
 
     private static final String QUEUE_NAME = "customer-queue";
-    private static final String EXCHANGE_NAME = "customer.create";
+    private static final String EXCHANGE_NAME = "customer-exchange";
 
     @Bean
     public Queue queueConsumer() {

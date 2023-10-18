@@ -1,5 +1,9 @@
 package com.example.customer;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -23,11 +27,28 @@ public class CustomerApplication  implements RepositoryRestConfigurer {
         
         SpringApplication.run(CustomerApplication.class, args);
     }
+        private static final String QUEUE_NAME = "customer-queue";
+    private static final String EXCHANGE_NAME = "customer.create";
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+    // @Bean
+    // public Queue queueProducer(){
+    //     return new Queue(QUEUE_NAME, false);
+    // }
+
+    // @Bean
+    // public TopicExchange exchangeProducer(){
+    //     return new TopicExchange(EXCHANGE_NAME);
+    // }
+
+    // @Bean
+    // public Binding bindingProducer(Queue queue, TopicExchange exchange){
+    //     return BindingBuilder.bind(queue).to(exchange).with("customer.queue");
+    // }
+
+    // @Bean
+    // public RestTemplate restTemplate() {
+    //     return new RestTemplate();
+    // }
 
     @Bean
     public CorsFilter corsFilter() {

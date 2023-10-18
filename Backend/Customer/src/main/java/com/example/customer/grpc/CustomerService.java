@@ -7,14 +7,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import net.devh.boot.grpc.server.service.GrpcService;
 import com.example.customer.model.Customer;
 import com.example.customer.repository.CustomerRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 @GrpcService
 public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase{
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
     private CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {
@@ -67,9 +73,15 @@ public void createCustomer(CreateCustomerRequest request, StreamObserver<Custome
             .setId(savedCustomer.getId())
             .build();
 
+    
+    rabbitTemplate.convertAndSend("customer-exchange", "customer.create", savedCustomer.getName()
+    +"is created");
     responseObserver.onNext(response);
     responseObserver.onCompleted();
 }
+
+
+
 
     @Override
     public void updateCustomer(UpdateCustomerRequest request,StreamObserver<UpdateCustomerResponse> responseObserver){

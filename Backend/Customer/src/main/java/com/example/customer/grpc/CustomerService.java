@@ -14,6 +14,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 import com.example.customer.model.Customer;
 import com.example.customer.repository.CustomerRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @GrpcService
@@ -21,6 +22,9 @@ public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private ObjectMapper objectMapper;
+
     private CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {
@@ -51,7 +55,7 @@ public class CustomerService extends CustomerServiceGrpc.CustomerServiceImplBase
 }
 
 @Override
-public void createCustomer(CreateCustomerRequest request, StreamObserver<CustomerResponse> responseObserver) {
+public void createCustomer(CreateCustomerRequest request, StreamObserver<CustomerResponse> responseObserver)  {
     String name = request.getName();
     String email = request.getEmail();
     String password = request.getPassword();
@@ -67,17 +71,20 @@ public void createCustomer(CreateCustomerRequest request, StreamObserver<Custome
     newCustomer.setPolicy_name(policyNames);
     newCustomer.setPolicy_id(policyIds);
 
-    Customer savedCustomer = customerRepository.save(newCustomer);
+    try {
+        String customerJson = objectMapper.writeValueAsString(newCustomer);
+        rabbitTemplate.convertAndSend("customer.create", "customer.created", customerJson);
+        CustomerResponse response = CustomerResponse.newBuilder().setId("customer created").build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    } catch (JsonProcessingException e) {
+        e.printStackTrace();
+        responseObserver.onError(Status.INTERNAL.withDescription("Error creating customer").asRuntimeException());
+    }
 
-    CustomerResponse response = CustomerResponse.newBuilder()
-            .setId(savedCustomer.getId())
-            .build();
+
 
     
-    rabbitTemplate.convertAndSend("customer-exchange", "customer.create", savedCustomer.getName()
-    +"is created");
-    responseObserver.onNext(response);
-    responseObserver.onCompleted();
 }
 
 

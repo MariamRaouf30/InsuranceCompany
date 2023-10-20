@@ -14,25 +14,25 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Listener {
     public static final Logger LOG = LoggerFactory.getLogger(Listener.class);
     private final ObjectMapper mapper;
-    
-    public Listener(ObjectMapper mapper) {
+    private final CustomerRepository customerRepository;
+    public Listener(ObjectMapper mapper, CustomerRepository customerRepository) {
         this.mapper = mapper;
-        
+        this.customerRepository = customerRepository;
     }
 
     public void receiveMessage(String message) {
-        try{
-            String customer = mapper.readValue(message, String.class);
-            LOG.info(customer);
-            // if("name".equals()){
-               
-            //     LOG.info("");
-            // }else{
-            //     LOG.warn("Not Sent");
-            // }
-        }catch(JsonProcessingException e){
-            e.printStackTrace();
-        }
+        
+            try {
+                
+                Customer customer = mapper.readValue(message, Customer.class);
+    
+                
+                customerRepository.save(customer);
+    
+                LOG.info(customer.getName() + " : Customer is created");
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
     }
     
 }

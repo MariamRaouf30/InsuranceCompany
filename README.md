@@ -144,9 +144,9 @@ The system is designed for scalability, adaptability and enhanced performance. I
 - [x] Connect to Database (MongoDB) 
 - [x] Add Microservices.
 - [x] Frontend Project.
-- [ ] Test project performance. 
+- [x] Test project performance. 
     - [x] RESTful API 
-    - [ ] gRpc
+    - [x] gRpc
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
